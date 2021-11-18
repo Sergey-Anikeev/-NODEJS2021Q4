@@ -2,7 +2,7 @@ const { Writable } = require('stream');
 const fs = require('fs');
 
 
-class CustomWritable extends Writable {
+class myWritableClass extends Writable {
   constructor(filePath) {
     super();
     this.filePath = filePath;
@@ -32,4 +32,4 @@ class CustomWritable extends Writable {
     }
   }
 }
-module.exports = CustomWritable;
+module.exports = myWritableClass;

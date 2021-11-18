@@ -1,44 +1,25 @@
 const fs = require('fs');
 const path = require('path');
-
-
-const isFlagsValid = (flag, flagFull) => {
-	const flagIndex = process.argv.indexOf(flag);
-	const fullFlagIndex = process.argv.indexOf(flagFull);
-	if (flagIndex > 0 && fullFlagIndex > 0) {
-		process.stderr.write(`\x1b[31mError: option ${flag} and ${flagFull} is duplicated\x1b[0m`);
-		process.exit(2);
-	}
-	if (flagIndex != process.argv.lastIndexOf(flag)) {
-		process.stderr.write(`\x1b[31mError: option ${flag} is duplicated\x1b[0m`);
-		process.exit(2);
-	}
-	if (fullFlagIndex != process.argv.lastIndexOf(flagFull)) {
-		process.stderr.write(`\x1b[31mError: option ${flagFull} is duplicated\x1b[0m`);
-		process.exit(2);
-	}
-}
-
-module.exports = isFlagsValid;
+const isFlagsValid = require('./isFlagsValid');
 
 const validity = (config, inputFile, outputFile) => {
 	if (inputFile) {
-		const filePath = path.resolve(__dirname, inputFile.trim());
+		const filePath = path.resolve(__dirname, '../', inputFile.trim());
 		if (!fs.existsSync(filePath)) {
-		process.stderr.write(`\x1b[31mError: input file ${inputFile.trim()} not found at ${filePath}\x1b[0m`);
-		process.exit(2);
+			process.stderr.write(`\x1b[31mError: input file ${inputFile.trim()} not found at ${filePath}\x1b[0m`);
+			process.exit(2);
 		}
 	} 
 	if (outputFile) {
-		const filePath = path.resolve(__dirname, outputFile.trim());
+		const filePath = path.resolve(__dirname, '../', outputFile.trim());
 		if (!fs.existsSync(filePath)) {
-		process.stderr.write(`\x1b[31mError: output file ${outputFile.trim()} not found at ${filePath}\x1b[0m`);
-		process.exit(2);
+			process.stderr.write(`\x1b[31mError: output file ${outputFile.trim()} not found at ${filePath}\x1b[0m`);
+			process.exit(2);
 		}
 	}
 	isFlagsValid('-c', '--config');
 	isFlagsValid('-i', '--input');
-  isFlagsValid('-o', '--output');
+  	isFlagsValid('-o', '--output');
 
 	const configArray = config.split('-');
 	const regExConfig = new RegExp(/[ACR][01]?-/g);
