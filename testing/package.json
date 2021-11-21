@@ -1,0 +1,11 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "unit testing task & Jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Sergey-Anikeev",
+  "license": "ISC"
+}
