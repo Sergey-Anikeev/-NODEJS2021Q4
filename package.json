@@ -1,0 +1,28 @@
+{
+  "name": "nodejs2021q4",
+  "version": "1.0.0",
+  "description": "testing & Jest",
+  "main": "ciphering_cli_tool.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergey-Anikeev/NODEJS2021Q4.git"
+  },
+  "keywords": [
+    "npm",
+    "test",
+    "Jest"
+  ],
+  "author": "Sergey-Anikeev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sergey-Anikeev/NODEJS2021Q4/issues"
+  },
+  "homepage": "https://github.com/Sergey-Anikeev/NODEJS2021Q4#readme"
+}
